@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+
+    <!--
+    JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <!-- Nuestro
+     <link rel="stylesheet" type="text/css" href="static/css/loggin.css" th:href="@{/css/loggin.css}">
+     css-->
+
+
+
+</head>
+<body>
+<div class="modal-dialog text-center">
+    <div class="modal-content">
+        <form th:action="@{/auth/register}" th:object="${user}" method="post">
+            <div class="card-header">
+                <h3> new user</h3>
+            </div>
+
+
+            <input type="hidden" th:field="*{id}" id="id" >
+
+            <div class="card-body">
+                <label>Name</label>
+                <input th:field="*{name}" type="text" class="form-control">
+            </div>
+
+            <div class="card-body">
+                <label>last name</label>
+                <input th:field="*{lastName}" type="text" class="form-control">
+            </div>
+
+            <div class="card-body">
+                <label>user name</label>
+                <input th:field="*{userName}" type="text" class="form-control">
+            </div>
+
+            <div class="card-body">
+                <label>email</label>
+                <input th:field="*{email}" type="text" class="form-control">
+            </div>
+
+            <div class="card-body">
+                <label>password</label>
+                <input th:field="*{password}" type="text" class="form-control">
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
