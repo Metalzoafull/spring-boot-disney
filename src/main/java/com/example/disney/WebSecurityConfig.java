@@ -25,20 +25,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         http
                 .authorizeRequests()
                 .antMatchers(resources).permitAll()
-                .anyRequest().authenticated()
-                .and()
+                    .anyRequest().authenticated()
+                    .and()
                 .formLogin()
-                .loginPage("/auth/login")
-                .permitAll()
-                .defaultSuccessUrl("/home")
-                .failureUrl("/login?error=true")
-                .usernameParameter("username")
-                .passwordParameter("password")
-                .and()
-                .csrf().disable()
+                    .loginPage("/auth/login")
+                    .permitAll()
+                    .defaultSuccessUrl("/home")
+                    .failureUrl("/login?error=true")
+                    .usernameParameter("username")
+                    .passwordParameter("password")
+                    .and()
+                    .csrf().disable()
                 .logout()
-                .permitAll()
-                .logoutSuccessUrl("/auth/login");
+                    .permitAll()
+                    .logoutSuccessUrl("/auth/login");
     }
 
     BCryptPasswordEncoder bCryptPasswordEncoder;

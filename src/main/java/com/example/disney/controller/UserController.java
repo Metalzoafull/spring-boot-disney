@@ -37,7 +37,17 @@ public class UserController {
     public String save(@Validated User user, Model model){
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userServiceAPI.save(user);
-        return "redirect:/home";
+        return "redirect:/auth/login";
 
+    }
+
+    @GetMapping("/home")
+    public String home(){
+        return "/home";
+    }
+
+    @GetMapping("/hola")
+    public String hola() {
+        return "hola";
     }
 }

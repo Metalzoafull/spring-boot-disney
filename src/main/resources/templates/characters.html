@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>characters</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div class="container">
+    <br>
+    <div>
+    </div>
+    <h2 th:if="${list.isEmpty()}">no hay personajes</h2>
+    <div th:if="${!list.isEmpty()}">
+        <h2>characters</h2>
+        <table class="table">
+            <thead>
+
+            <tr>
+                <th>name</th>
+                <th>age</th>
+                <th></th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="personage : ${list}">
+                <td th:text="${personage.name}"></td>
+                <td th:text="${personage.age}"></td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-7">
+
+                            <img class="img-thumbnail rounded float-left" src="'img'/ + ${pesonage.image}" th:src="@{'/img/' + ${personage.image}}" th:alt="${personage.image}"
+                                 style="max-widht:90%;max-height:100%">
+                        </div>
+                    </div>
+                </td>
+                <td><a></a></td>
+            </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+    <p><a class="btn btn-secondary" href="#" th:href="@{/create/createCharacter}">Crear Personage - Register</a></p>
+</div>
+
+</body>
+</html>

@@ -7,5 +7,7 @@ import java.util.Optional;
 
 public interface UserDaoAPI extends CrudRepository<User, Long> {
 
-    public Optional<User> findByName(String username);
+    public Optional<User> findByName(String name);
+    public Optional<User> findByUserName(String username);
+
 }

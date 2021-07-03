@@ -10,7 +10,7 @@ public class Personage {
 
     //aclaro al mapeo que "id" sera mi id de primary key de base de datos, tambien dejo en claro que tendra un tipo de generacion automatica
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO,  generator="native")
     private Long id;
 
     //al resto de valores de la base de datos les asignos un @Column para que el mapeo entienda que son columna de la base de datos, y asi poder crearlas en la base de datos
