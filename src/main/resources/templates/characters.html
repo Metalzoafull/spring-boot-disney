@@ -21,15 +21,21 @@
 
             <tr>
                 <th>name</th>
-                <th>age</th>
+                <th></th>
                 <th></th>
 
             </tr>
             </thead>
             <tbody>
             <tr th:each="personage : ${list}">
-                <td th:text="${personage.name}"></td>
-                <td th:text="${personage.age}"></td>
+                <div class="col-12 forgot">
+                    <!--href="${personage.id}" -->
+                    <!--con el th:href llamo al metodo que cumplira con la funcion de editar a mi personaje, el "th:text" lo estoy utilizando para que me muestre
+                    el nombre del "personaje", y para que lo muestre llamo al nombre con "personage.name"-->
+                    <td> <a th:href="@{/edit/{id}(id=${personage.id})}" th:text="${personage.name}">  </a></td>
+                </div>
+
+                <td></td>
                 <td>
                     <div class="row">
                         <div class="col-md-7">

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>formCharact</title>
+
+    <!--
+  JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet"
+          th:href="@{/css/bootstrap.css}">
+
+    <!-- Mi css
+    <link rel="stylesheet" type="text/css" href="static/css/homeS.css" th:href="@{/css/homeS.css}">
+    -->
+
+
+</head>
+<body>
+<div class="modal-dialog text-center">
+    <div class="col-md-4 mt-5">
+        <div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+    </div>
+    <div class="modal-content">
+        <form th:action="@{/save}" th:object="${personage}" method="post" enctype="multipart/form-data">
+            <div class="card-header">
+                <h3> new personage</h3>
+            </div>
+
+
+            <input type="hidden" th:field="*{id}" id="id" >
+
+            <div class="card-body">
+                <label>Name</label>
+                <input th:field="*{name}" type="text" class="form-control">
+            </div>
+
+            <div class="card-body">
+                <label>age</label>
+                <input th:field="*{age}" type="text" class="form-control">
+            </div>
+
+            <div class="card-body">
+                <label>weight</label>
+                <input th:field="*{weight}" type="text" class="form-control">
+            </div>
+
+            <div class="card-body">
+                <label>history</label>
+                <input th:field="*{history}" type="text" class="form-control">
+            </div>
+
+            <div class="card-body">
+                <input type="file" name="file" class="form-control" id="image">
+            </div>
+
+
+            <br>
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

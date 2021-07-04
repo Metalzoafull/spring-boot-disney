@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,13 +32,13 @@ public class PersonageController {
         return "characters";
     }
 
-    @GetMapping("/create/createCharacter")
+    @GetMapping("/characters/formCharact")
     public String create(Model model){
         model.addAttribute("personage", new Personage());
-        return "create/createCharacter";
+        return "characters/formCharact";
     }
 
-    @PostMapping("/create/createCharacter")
+    @PostMapping("/save")
     public String save(@Validated Personage personage,Model model,@RequestParam(name = "file")MultipartFile image, RedirectAttributes flash){
         if (!image.isEmpty()){
             Path directorioImg = Paths.get("src//main//resources//static/img");
@@ -61,6 +62,22 @@ public class PersonageController {
 
 
         return "redirect:/home";
+    }
+
+    //en el parentesis de este get mapping le digo cuando tiene que trabajar, tiene que trabajar cuando algun HTML haga una llamada a "edit" con el id de algun personaje
+    //cuuando esto pasa el metodo edit le dara al html un personaje, que se buscara con el metedo get y el parametro de ID que vino con el llamado al edit
+    //estos datos se mostraran por pantalla en en el html que estan en la carpeta "character", dicho HTML se llama formCharact
+    //este HTML estara encargado de modificar el personage y luego llamara al metodo "save" para guardar dichos cambios
+    @GetMapping("edit/{id}")
+    public String edit(@PathVariable("id") Long id, Model model){
+        model.addAttribute("personage", personageServiceAPI.get(id));
+        return "characters/formCharact";
+    }
+
+    @GetMapping("delete/{id}")
+    public String delete(@PathVariable("id") Long id, Model model) {
+        personageServiceAPI.delete(id);
+        return "redirect:/characters";
     }
 
 
