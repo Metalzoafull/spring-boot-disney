@@ -3,6 +3,8 @@ package com.example.disney.model;
 
 import javax.persistence.*;
 import java.lang.Float;
+import java.util.HashSet;
+import java.util.Set;
 
 //declaro todas las clases que poseo con el @Entity, para darle a enter al mapeo que esta clase es una entidad de base de datos
 @Entity
@@ -28,6 +30,15 @@ public class Personage {
 
     @Column
     private String image;
+
+    /*
+    * @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL,mappedBy = "matter")
+    private Set<User> user = new HashSet<>();
+    * */
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "personage")
+    private Set<FilmSerie> filmSerie = new HashSet<>();
+
 
     public Long getId() {
         return id;
@@ -75,5 +86,13 @@ public class Personage {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Set<FilmSerie> getFilmSerie() {
+        return filmSerie;
+    }
+
+    public void setFilmSerie(Set<FilmSerie> filmSerie) {
+        this.filmSerie = filmSerie;
     }
 }

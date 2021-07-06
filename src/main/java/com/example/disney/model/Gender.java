@@ -12,6 +12,9 @@ public class Gender {
     @Column
     private String name;
 
+    @Column
+    private String image;
+
     public Long getId() {
         return id;
     }
@@ -26,5 +29,13 @@ public class Gender {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

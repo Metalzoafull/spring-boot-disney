@@ -6,7 +6,9 @@ import com.example.disney.model.Gender;
 import com.example.disney.service.api.GenderServiceAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class GenderServiceImpl extends GenericServiceImpl<Gender, Long> implements GenderServiceAPI {
 
     @Autowired

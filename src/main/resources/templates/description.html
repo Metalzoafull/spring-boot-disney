@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Description</title>
+
+
+
+</head>
+<body>
+<div class="container">
+  <br>
+  <h2>Description matter</h2>
+  <form action="#" th:action="@{/desciption}" class="from-group" th:object=${personage} method="get">
+    <div class="form-group">
+      <label for="name">name</label> <input type="text"
+                                            class="form-control" id="name" th:field="*{name}" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="age">age</label> <input type="text"
+                                                class="form-control" id="age" th:field="*{age}" name="age">
+    </div>
+
+  <!--<form action="#" th:action="@{/student/matter/description}" class="from-group" th:object=${user} method="get">
+          <div class="form-group">
+             <label for="name">name</label> <input type="text"
+                 class="form-control" id="name" th:field="*{name}" name="name">
+          </div>
+  </form>-->
+
+
+</div>
+</body>
+</html>

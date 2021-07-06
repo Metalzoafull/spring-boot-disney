@@ -1,10 +1,12 @@
 package com.example.disney.model;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-public class FilmSerie {
+public class FilmSerie{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,6 +23,22 @@ public class FilmSerie {
 
     @Column
     private String image;
+
+
+
+    /*
+    * @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "FK_matter"
+			,joinColumns = {@JoinColumn(name = "user_id")}
+	        ,inverseJoinColumns = {@JoinColumn(name = "matter_id")})
+	private Set<Matter> matter = new HashSet<>();
+    * */
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "filmS_personage"
+             ,joinColumns = {@JoinColumn(name = "filmS_id")}
+             ,inverseJoinColumns = {@JoinColumn(name = "personage_id")})
+    private Set<Personage> personage = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -61,4 +79,14 @@ public class FilmSerie {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public Set<Personage> getPersonage() {
+        return personage;
+    }
+
+    public void setPersonage(Set<Personage> personage) {
+        this.personage = personage;
+    }
+
+
 }

@@ -32,15 +32,19 @@
                     <!--href="${personage.id}" -->
                     <!--con el th:href llamo al metodo que cumplira con la funcion de editar a mi personaje, el "th:text" lo estoy utilizando para que me muestre
                     el nombre del "personaje", y para que lo muestre llamo al nombre con "personage.name"-->
-                    <td> <a th:href="@{/edit/{id}(id=${personage.id})}" th:text="${personage.name}">  </a></td>
+                    <td> <a th:href="@{characters/edit/{id}(id=${personage.id})}" th:text="${personage.name}">  </a>
+                        <a class="btn btn-success" th:href="@{characters?name={age}(age=${personage.age})}">age</a>
+                        <a class="btn btn-success" th:href="@{characters/delete/{id}(id=${personage.id})}">delete</a>
+                        <a class="btn btn-success" th:href="@{characters?name={name}(name=${personage.name})}">name</a>
+
                 </div>
 
                 <td></td>
                 <td>
                     <div class="row">
                         <div class="col-md-7">
-
-                            <img class="img-thumbnail rounded float-left" src="'img'/ + ${pesonage.image}" th:src="@{'/img/' + ${personage.image}}" th:alt="${personage.image}"
+                            <!-- src="'img'/'personage'/ + ${pesonage.image}" -->
+                            <img class="img-thumbnail rounded float-left"  th:src="@{'/img/personage/' + ${personage.image}}" th:alt="${personage.image}"
                                  style="max-widht:90%;max-height:100%">
                         </div>
                     </div>
@@ -52,7 +56,7 @@
 
         </table>
     </div>
-    <p><a class="btn btn-secondary" href="#" th:href="@{/create/createCharacter}">Crear Personage - Register</a></p>
+    <p><a class="btn btn-secondary" href="#" th:href="@{/characters/formCharact}">Crear Personage - Register</a></p>
 </div>
 
 </body>
