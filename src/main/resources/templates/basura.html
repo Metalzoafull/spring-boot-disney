@@ -1,0 +1,59 @@
+
+<!--
+  xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+
+
+
+
+
+ <td th:text="${matter.name}"></td>
+  <li>Filmes <tr th:each="films : *{filmSerie}">
+      <td th:text="${films.title}}"></td>
+  </tr></li>
+  <li class="list-group-item" th:text="'hola:' + *{filmSerie}"></li>
+  -->
+
+<!--
+
+-->
+
+
+
+<!--
+<li class="list-group-item">
+  <th th:if="*{genders.isEmpty()}">
+    caca
+  </th>
+</li>
+
+ <li class="list-group-item" th:text="*{genders}">
+</li>
+-->
+
+
+
+<!--
+<li class="list-group-item" >
+  Genders:
+  <tr th:each="gender : *{genders}">
+    "
+     <td th:text="${gender.name}"></td>
+    </br>
+</tr>
+
+</li>
+
+-->
+
+
+
+
+
+
+
+<!--<form action="#" th:action="@{/student/matter/description}" class="from-group" th:object=${user} method="get">
+            <div class="form-group">
+               <label for="name">name</label> <input type="text"
+                   class="form-control" id="name" th:field="*{name}" name="name">
+            </div>
+            -->

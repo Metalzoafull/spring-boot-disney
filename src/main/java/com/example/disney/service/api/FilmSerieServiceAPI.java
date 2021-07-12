@@ -14,6 +14,9 @@ public interface FilmSerieServiceAPI extends GenericServiceAPI<FilmSerie, Long> 
     List<FilmSerie> findByOrderByDateDesc();
 
     List<FilmSerie> ordenar(String order);
+
+    List<FilmSerie> filterGender(Long id);
+
     /*public List<FilmSerie> ordenarAsc();
     public List<FilmSerie> ordenarDesc();
 

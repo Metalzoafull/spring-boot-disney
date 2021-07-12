@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Description</title>
+
+
+
+</head>
+<body>
+<div class="container">
+  <br>
+  <h2>Description matter</h2>
+  <form action="#" th:action="@{movies/desciption}" class="from-group" th:object=${films} method="get">
+
+    <div class="card-body">
+      <img class="img-thumbnail rounded float-left"  th:src="@{'/img/movies/' + *{image}}" th:alt="*{image}"
+           style="max-widht:90%;max-height:100%">
+
+      <ul class="list-group">
+        <li class="list-group-item" th:text="'Title: ' + *{title}"></li>
+        <li class="list-group-item" th:text="'Date: ' + *{date}"></li>
+        <li class="list-group-item" th:text="'Score: ' + *{score}"></li>
+        <li class="list-group-item" >
+          Personages:
+          <tr th:each="chara : *{personage}">
+            <td th:text="${chara.name}"></td>
+            <br>
+          </tr>
+        </li>
+
+        <li class="list-group-item" >
+          Genders:
+          <tr th:each="gender : *{genders}">
+            <td th:text="${gender.name}"></td>
+            </br>
+          </tr>
+
+        </li>
+      </ul>
+    </div>
+  </form>
+
+
+</div>
+</body>
+</html>

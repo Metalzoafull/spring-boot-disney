@@ -13,6 +13,8 @@ public interface FilmSerieDaoAPI extends CrudRepository<FilmSerie, Long> {
     public List<FilmSerie> findByOrderByDateAsc();
 
     public List<FilmSerie> findByOrderByDateDesc();
+
+
     //@Modifying
     //@Query(value = "SELECT * FROM Personage WHERE Personage.name = :name", nativeQuery = true)
     //SELECT * FROM $table ORDER BY DATE_FORMAT(Date, '%Y%m%d') DESC LIMIT 14

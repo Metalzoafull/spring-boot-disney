@@ -61,6 +61,12 @@ public class PersonageController {
         return "characters";
     }
 
+    @GetMapping("/characters/description/{id}")
+    public String description(@PathVariable("id") Long id, Model model){
+        model.addAttribute("personage", personageServiceAPI.get(id));
+        return "characters/description";
+    }
+
     @GetMapping("/characters/formCharact")
     public String create(Model model){
         model.addAttribute("personage", new Personage());

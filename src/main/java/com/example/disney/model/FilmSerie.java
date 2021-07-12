@@ -40,6 +40,13 @@ public class FilmSerie{
              ,inverseJoinColumns = {@JoinColumn(name = "personage_id")})
     private Set<Personage> personage = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "filmS_gender"
+            ,joinColumns = {@JoinColumn(name = "filmSe_id")}
+            ,inverseJoinColumns = {@JoinColumn(name = "gender_id")})
+    private Set<Gender> genders = new HashSet<>();
+
+
     public Long getId() {
         return id;
     }
@@ -88,5 +95,22 @@ public class FilmSerie{
         this.personage = personage;
     }
 
+    public Set<Gender> getGenders() {
+        return genders;
+    }
 
+    public void setGenders(Set<Gender> genders) {
+        this.genders = genders;
+    }
+
+    @Override
+    public String toString() {
+        return "FilmSerie{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", date=" + date +
+                ", score=" + score +
+                ", image='" + image + '\'' +
+                '}';
+    }
 }

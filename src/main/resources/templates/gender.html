@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>movies</title>
+  <title>characters</title>
 
   <!-- Bootstrap CSS -->
   <link href="../static/css/bootstrap.css" rel="stylesheet"
@@ -13,9 +13,9 @@
   <br>
   <div>
   </div>
-  <h2 th:if="${list.isEmpty()}">no hay movies</h2>
+  <h2 th:if="${list.isEmpty()}">no hay personajes</h2>
   <div th:if="${!list.isEmpty()}">
-    <h2>movies</h2>
+    <h2>characters</h2>
     <table class="table">
       <thead>
 
@@ -27,15 +27,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr th:each="movies : ${list}">
+      <tr th:each="gender : ${list}">
         <div class="col-12 forgot">
           <!--href="${personage.id}" -->
           <!--con el th:href llamo al metodo que cumplira con la funcion de editar a mi personaje, el "th:text" lo estoy utilizando para que me muestre
-          el nombre del "personaje", y para que lo muestre llamo al nombre con "personage.name"-->
-          <td> <a th:href="@{movies/edit/{id}(id=${movies.id})}" th:text="${movies.title}">  </a>
-            <a class="btn btn-success" th:href="@{movies/delete/{id}(id=${movies.id})}">delete</a>
-            <a class="btn btn-success" th:href="@{movies/description/{id}(id=${movies.id})}">title</a>
+          el nombre del "personaje", y para que lo muestre llamo al nombre con "personage.name"
 
+          -->
+          <td> <a th:href="@{gender/edit/{id}(id=${gender.id})}" th:text="${gender.name}">  </a>
         </div>
 
         <td></td>
@@ -43,7 +42,7 @@
           <div class="row">
             <div class="col-md-7">
               <!-- src="'img'/'personage'/ + ${pesonage.image}" -->
-              <img class="img-thumbnail rounded float-left"  th:src="@{'/img/movies/' + ${movies.image}}" th:alt="${movies.image}"
+              <img class="img-thumbnail rounded float-left"  th:src="@{'/img/gender/' + ${gender.image}}" th:alt="${gender.image}"
                    style="max-widht:90%;max-height:100%">
             </div>
           </div>
@@ -55,7 +54,7 @@
 
     </table>
   </div>
-  <p><a class="btn btn-secondary" href="#" th:href="@{/movies/formMovies}">Create Movies</a></p>
+  <p><a class="btn btn-secondary" href="#" th:href="@{/characters/formCharact}">Crear Personage - Register</a></p>
 </div>
 
 </body>

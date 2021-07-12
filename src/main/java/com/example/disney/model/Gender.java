@@ -1,6 +1,8 @@
 package com.example.disney.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Gender {
@@ -14,6 +16,10 @@ public class Gender {
 
     @Column
     private String image;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "genders")
+    private Set<FilmSerie> filmSeries = new HashSet<>();
+
 
     public Long getId() {
         return id;
@@ -37,5 +43,22 @@ public class Gender {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Set<FilmSerie> getFilmSeries() {
+        return filmSeries;
+    }
+
+    public void setFilmSeries(Set<FilmSerie> filmSeries) {
+        this.filmSeries = filmSeries;
+    }
+
+    @Override
+    public String toString() {
+        return "Gender{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", image='" + image + '\'' +
+                '}';
     }
 }

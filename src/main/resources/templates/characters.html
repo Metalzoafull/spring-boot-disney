@@ -31,11 +31,13 @@
                 <div class="col-12 forgot">
                     <!--href="${personage.id}" -->
                     <!--con el th:href llamo al metodo que cumplira con la funcion de editar a mi personaje, el "th:text" lo estoy utilizando para que me muestre
-                    el nombre del "personaje", y para que lo muestre llamo al nombre con "personage.name"-->
+                    el nombre del "personaje", y para que lo muestre llamo al nombre con "personage.name"
+
+                    -->
                     <td> <a th:href="@{characters/edit/{id}(id=${personage.id})}" th:text="${personage.name}">  </a>
                         <a class="btn btn-success" th:href="@{characters?name={age}(age=${personage.age})}">age</a>
                         <a class="btn btn-success" th:href="@{characters/delete/{id}(id=${personage.id})}">delete</a>
-                        <a class="btn btn-success" th:href="@{characters?name={name}(name=${personage.name})}">name</a>
+                        <a class="btn btn-success" th:href="@{characters/description/{id}(id=${personage.id})}">name</a>
 
                 </div>
 

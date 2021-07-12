@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Description</title>
+
+
+
+</head>
+<body>
+<div class="container">
+    <br>
+    <h2>Description matter</h2>
+    <form action="#" th:action="@{character/desciption}" class="from-group" th:object=${personage} method="get">
+
+        <div class="card-body">
+            <img class="img-thumbnail rounded float-left"  th:src="@{'/img/personage/' + *{image}}" th:alt="*{image}"
+                 style="max-widht:90%;max-height:100%">
+
+            <ul class="list-group">
+                <li class="list-group-item" th:text="'Name: ' + *{name}"></li>
+                <li class="list-group-item" th:text="'Age: ' + *{age}"></li>
+                <li class="list-group-item" th:text="'Weight: ' + *{weight}"></li>
+                <li class="list-group-item" th:text="'History: ' + *{history}"></li>
+                <!-- <td th:text="${matter.name}"></td>
+                <li>Filmes <tr th:each="films : *{filmSerie}">
+                    <td th:text="${films.title}}"></td>
+                </tr></li>
+                <li class="list-group-item" th:text="'hola:' + *{filmSerie}"></li>
+                -->
+                <li class="list-group-item"  >
+                    Filmes:
+                    <tr th:each="films : *{filmSerie}">
+                    <td th:text="${films.title}"></td>
+                    </tr>
+                </li>
+
+            </ul>
+        </div>
+
+
+        <!--<form action="#" th:action="@{/student/matter/description}" class="from-group" th:object=${user} method="get">
+                <div class="form-group">
+                   <label for="name">name</label> <input type="text"
+                       class="form-control" id="name" th:field="*{name}" name="name">
+                </div>
+                -->
+        </form>
+
+
+</div>
+</body>
+</html>

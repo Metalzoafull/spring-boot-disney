@@ -44,6 +44,18 @@ public class FilmSerieController {
         return "movies";
     }
 
+    @GetMapping(value = "movies", params = "genre")
+    public String genero(@RequestParam(name = "genre") Long genre, Model model){
+        model.addAttribute("list", filmSerieServiceAPI.filterGender(genre));
+        return "movies";
+    }
+
+    @GetMapping("/movies/description/{id}")
+    public String description(@PathVariable("id") Long id, Model model){
+        model.addAttribute("films", filmSerieServiceAPI.get(id));
+        return "movies/description";
+    }
+
     @GetMapping("/movies/formMovies")
     public String create(Model model){
         model.addAttribute("movies", new FilmSerie());
