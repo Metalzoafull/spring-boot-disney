@@ -35,9 +35,8 @@
 
                     -->
                     <td> <a th:href="@{characters/edit/{id}(id=${personage.id})}" th:text="${personage.name}">  </a>
-                        <a class="btn btn-success" th:href="@{characters?name={age}(age=${personage.age})}">age</a>
                         <a class="btn btn-success" th:href="@{characters/delete/{id}(id=${personage.id})}">delete</a>
-                        <a class="btn btn-success" th:href="@{characters/description/{id}(id=${personage.id})}">name</a>
+                        <a class="btn btn-success" th:href="@{characters/description/{id}(id=${personage.id})}">description</a>
 
                 </div>
 
