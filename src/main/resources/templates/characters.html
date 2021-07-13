@@ -16,46 +16,30 @@
     <h2 th:if="${list.isEmpty()}">no hay personajes</h2>
     <div th:if="${!list.isEmpty()}">
         <h2>characters</h2>
-        <table class="table">
-            <thead>
 
-            <tr>
-                <th>name</th>
-                <th></th>
-                <th></th>
-
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="personage : ${list}">
-                <div class="col-12 forgot">
-                    <!--href="${personage.id}" -->
-                    <!--con el th:href llamo al metodo que cumplira con la funcion de editar a mi personaje, el "th:text" lo estoy utilizando para que me muestre
-                    el nombre del "personaje", y para que lo muestre llamo al nombre con "personage.name"
-
-                    -->
-                    <td> <a th:href="@{characters/edit/{id}(id=${personage.id})}" th:text="${personage.name}">  </a>
-                        <a class="btn btn-success" th:href="@{characters/delete/{id}(id=${personage.id})}">delete</a>
-                        <a class="btn btn-success" th:href="@{characters/description/{id}(id=${personage.id})}">description</a>
-
-                </div>
-
-                <td></td>
-                <td>
-                    <div class="row">
-                        <div class="col-md-7">
-                            <!-- src="'img'/'personage'/ + ${pesonage.image}" -->
-                            <img class="img-thumbnail rounded float-left"  th:src="@{'/img/personage/' + ${personage.image}}" th:alt="${personage.image}"
-                                 style="max-widht:90%;max-height:100%">
+        <div class="row row-cols-1 row-cols-md-4" >
+            <div class="col mb-4" th:each="personage : ${list}">
+                <div class="card" >
+                    <img class="img-thumbnail rounded mx-auto d-block" th:src="@{'/img/personage/' + ${personage.image}}" alt="Responsive image" width="200px" height="200px">
+                    <div class="card-body text-center">
+                        <h3 class="card-title" th:text="${personage.name}"></h3>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a class="btn btn-success" th:href="@{characters/description/{id}(id=${personage.id})}">Description</a>
+                            <a type="button" class="btn btn-secondary" th:href="@{characters/edit/{id}(id=${personage.id})}">Edit</a>
+                            <a type="button" class="btn btn-danger" th:href="@{characters/delete/{id}(id=${personage.id})}">Delete</a>
                         </div>
+
+
+
+
                     </div>
-                </td>
-                <td><a></a></td>
-            </tr>
+                </div>
+            </div>
+        </div>
 
-            </tbody>
 
-        </table>
+
+
     </div>
     <p><a class="btn btn-secondary" href="#" th:href="@{/characters/formCharact}">Crear Personage - Register</a></p>
 </div>

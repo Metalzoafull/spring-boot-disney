@@ -91,10 +91,10 @@ public class FilmSerieController {
 
     }
 
-    @GetMapping("edit/{id}")
+    @GetMapping("movies/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model){
         model.addAttribute("movies", filmSerieServiceAPI.get(id));
-        return "filmSeries/formFilmSe";
+        return "movies/formMovies";
     }
 
     @GetMapping("delete/{id}")

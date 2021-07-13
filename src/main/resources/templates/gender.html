@@ -16,6 +16,7 @@
   <h2 th:if="${list.isEmpty()}">no hay personajes</h2>
   <div th:if="${!list.isEmpty()}">
     <h2>characters</h2>
+
     <table class="table">
       <thead>
 
@@ -28,6 +29,14 @@
       </thead>
       <tbody>
       <tr th:each="gender : ${list}">
+        <td>
+          <div class="row">
+            <div class="col-md-7">
+              <!-- src="'img'/'personage'/ + ${pesonage.image}" -->
+              <img class="img-thumbnail rounded float-left"  th:src="@{'/img/gender/' + ${gender.image}}" alt="Responsive image" width="400px" height="600px">
+            </div>
+          </div>
+        </td>
         <div class="col-12 forgot">
           <!--href="${personage.id}" -->
           <!--con el th:href llamo al metodo que cumplira con la funcion de editar a mi personaje, el "th:text" lo estoy utilizando para que me muestre
@@ -38,15 +47,7 @@
         </div>
 
         <td></td>
-        <td>
-          <div class="row">
-            <div class="col-md-7">
-              <!-- src="'img'/'personage'/ + ${pesonage.image}" -->
-              <img class="img-thumbnail rounded float-left"  th:src="@{'/img/gender/' + ${gender.image}}" th:alt="${gender.image}"
-                   style="max-widht:90%;max-height:100%">
-            </div>
-          </div>
-        </td>
+
         <td><a></a></td>
       </tr>
 
