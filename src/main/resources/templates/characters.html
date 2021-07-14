@@ -7,13 +7,16 @@
     <!-- Bootstrap CSS -->
     <link href="../static/css/bootstrap.css" rel="stylesheet"
           th:href="@{/css/bootstrap.css}">
+
+    <!--Css propio-->
+    <link rel="stylesheet" type="text/css" href="static/css/home.css" th:href="@{/css/home.css}">
 </head>
 <body>
 <div class="container">
     <br>
     <div>
     </div>
-    <h2 th:if="${list.isEmpty()}">no hay personajes</h2>
+    <h2 th:if="${list.isEmpty()}">no hay personages</h2>
     <div th:if="${!list.isEmpty()}">
         <h2>characters</h2>
 
@@ -28,10 +31,6 @@
                             <a type="button" class="btn btn-secondary" th:href="@{characters/edit/{id}(id=${personage.id})}">Edit</a>
                             <a type="button" class="btn btn-danger" th:href="@{characters/delete/{id}(id=${personage.id})}">Delete</a>
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>

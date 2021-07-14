@@ -5,8 +5,10 @@
   <title>characters</title>
 
   <!-- Bootstrap CSS -->
-  <link href="../static/css/bootstrap.css" rel="stylesheet"
-        th:href="@{/css/bootstrap.css}">
+  <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+
+  <!--Css propio-->
+  <link rel="stylesheet" type="text/css" href="static/css/gender.css" th:href="@{/css/gender.css}">
 </head>
 <body>
 <div class="container">
@@ -17,44 +19,20 @@
   <div th:if="${!list.isEmpty()}">
     <h2>characters</h2>
 
-    <table class="table">
-      <thead>
-
-      <tr>
-        <th>name</th>
-        <th></th>
-        <th></th>
-
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:each="gender : ${list}">
-        <td>
-          <div class="row">
-            <div class="col-md-7">
-              <!-- src="'img'/'personage'/ + ${pesonage.image}" -->
-              <img class="img-thumbnail rounded float-left"  th:src="@{'/img/gender/' + ${gender.image}}" alt="Responsive image" width="400px" height="600px">
-            </div>
+    <div class="row row-cols-1 row-cols-md-4" >
+      <div class="col mb-4" th:each="gender : ${list}">
+        <div class="card">
+          <img class="img-thumbnail rounded float-left"  th:src="@{'/img/gender/' + ${gender.image}}" alt="Responsive image" width="400px" height="600px">
+          <div class="card-body text-center">
+            <h3 class="card-tittle" th:text="${gender.name}"></h3>
           </div>
-        </td>
-        <div class="col-12 forgot">
-          <!--href="${personage.id}" -->
-          <!--con el th:href llamo al metodo que cumplira con la funcion de editar a mi personaje, el "th:text" lo estoy utilizando para que me muestre
-          el nombre del "personaje", y para que lo muestre llamo al nombre con "personage.name"
-
-          -->
-          <td> <a th:href="@{gender/edit/{id}(id=${gender.id})}" th:text="${gender.name}">  </a>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <td></td>
 
-        <td><a></a></td>
-      </tr>
-
-      </tbody>
-
-    </table>
-  </div>
+      </div>
   <p><a class="btn btn-secondary" href="#" th:href="@{/characters/formCharact}">Crear Personage - Register</a></p>
 </div>
 

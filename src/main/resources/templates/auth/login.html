@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
+    <!--Css propio-->
+    <link rel="stylesheet" type="text/css" href="static/css/login.css" th:href="@{/css/login.css}">
 
 
 
@@ -20,12 +22,13 @@
     <div class="col-sm-8 main-section">
         <div class="modal-content">
             <div class="col-12 user-img">
-                <img src="img/logo4.jpg" th:src="@{/img/logo4.jpg}"/>
+                <img th:src="@{/img/icon.png}"/>
             </div>
             <form class="col-12" th:action="@{/auth/login}" method="post">
                 <div class="form-group" id="user-group">
                     <input type="text" class="form-control" placeholder="nombre de usuario" name="username"/>
                 </div>
+                <br>
                 <div class="form-group" id="contrasena-group">
                     <input type="password" class="form-control" placeholder="password" name="password"/>
                 </div>

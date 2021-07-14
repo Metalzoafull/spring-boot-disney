@@ -1,0 +1,14 @@
+body{
+    background: #fdc830; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fdc830, #f37335); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fdc830, #f37335); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+.card img{
+    width: 200xp;
+    height: 400px;
+    box-shadow: 0px 0px 3px #848484;
+    border-radius: 50%;
+}
